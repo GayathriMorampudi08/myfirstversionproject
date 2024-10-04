@@ -57,7 +57,8 @@ resource "aws_instance" "terraformserver" {
 
     provisioner "local-exec" {
       command = <<EOT
-      sudo mkdir -p /var/root/.ssh
+      echo "your_password" | sudo -S mkdir -p /var/root/.ssh
+
       sudo sleep 120
       sudo ssh-keygen -R ${self.public_ip}
       sudo ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.public_ip}, playbook.yaml -u ec2-user --private-key /Users/gayathrimorampudi/Downloads/terrkeys.pem
