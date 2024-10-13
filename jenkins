@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Terraform init') {
             steps {
-                dir('/Users/gayathrimorampudi/terrproject') {  // Ensure this is your correct Terraform project directory
+                dir('/Users/gayathrimorampudi/terrproject') {  // this is your correct Terraform project directory
                     script {
                         try {
                             sh 'terraform init'
